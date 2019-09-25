@@ -54,6 +54,8 @@
       </div>
     </mat-toolbar>
     <div class="example-sidenav-content">
+      <h2 class="example-sidenav-content__todo-headline">To Do (5)</h2>
+      <app-tasks [name]='item.name' [text]='item.text' *ngFor="let item of items"></app-tasks>
     </div>
 </mat-drawer-container>
   
