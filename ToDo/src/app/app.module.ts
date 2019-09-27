@@ -8,12 +8,18 @@ import { MainPageComponent } from './core/main-page/main-page.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TasksComponent } from './core/tasks/tasks.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddTaskComponent } from './core/add-task/add-task.component';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
-    TasksComponent
+    TasksComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -21,8 +27,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    FormsModule,
+    MatInputModule
   ],
+  entryComponents: [ AddTaskComponent, ],
   providers: [],
   bootstrap: [AppComponent]
 })

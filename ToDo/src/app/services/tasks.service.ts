@@ -30,4 +30,9 @@ export class TasksService {
     console.error(errorMessage);
     return throwError(errorMessage);
   }
+  addTask(task: Task) {
+    return this.http.post<Task>(this.API_URL, JSON.stringify(task)).pipe(
+      tap(addTask => console.log('add task: ' + JSON.stringify(addTask))),
+      catchError(this.handleError));
+  }
 }

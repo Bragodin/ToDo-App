@@ -14,36 +14,28 @@ router.get('/', function(req, res, next) {
 });
 
 /* PUT (update) users listing. */
-// router.put('/', function (req, res, next) {
-//   const body = req.body;
-//   let obj = null;
-
-//   if (body && body.id) {
-//     fs.readFile('db-tasks.json', 'utf8', function (err, data) {
-//       if (err) {
-//         res.send(500);
-//       } else {
-//         obj = JSON.parse(data);
-//         obj = obj.map(item => {
-//           if (item.id === body.id) {
-//             return body;
-//           }
-//         });
-
-//         fs.writeFile('db-tasks.json', JSON.stringify(obj), 'utf8', function (err, data) {
-//           if (err) {
-//             res.send(500);
-//           } else {
-//             res.json({
-//               success: true,
-//               data: obj
-//             })
-//           }
-//         });
-//       }
-//     });
-//   }
-// });
+router.post('/', (req, res) => {
+  fs.readFile('db-tasks.json', 'utf8', function (err, data) {
+      if (err) {
+          console.log(err);
+      } else {
+        fs.readFile('db-tasks.json', 'utf8', function readFileCallback(err, data) {
+          if (err) {
+              res.send(500);
+          } else {
+              obj = JSON.parse(data);
+              obj.push(req.body);
+              json = JSON.stringify(obj);
+              fs.writeFile('db-tasks.json', json, 'utf8', function (err, data) {
+                  if (err) {
+                      res.send(500);
+                  }
+              });
+          }
+      });
+      }
+  });
+});
 
 /* DELETE users listing. */
 // router.delete('/', function (req, res, next) {
@@ -53,10 +45,5 @@ router.get('/', function(req, res, next) {
 // });
 
 /* POST users listing. */
-router.post('/', function (req, res, next) {
-  res.json({
-    message: 'post method'
-  })
-});
 
 module.exports = router;
