@@ -24,6 +24,7 @@ router.post('/', (req, res) => {
               res.send(500);
           } else {
               obj = JSON.parse(data);
+              console.log(req.body)
               obj.push(req.body);
               json = JSON.stringify(obj);
               fs.writeFile('db-tasks.json', json, 'utf8', function (err, data) {

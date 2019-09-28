@@ -37,7 +37,7 @@
             sort_by_alpha
           </i>
         </button>
-        <button class="example-sidenav__button_add" mat-raised-button (click)="openDialog(); qwe()">
+        <button class="example-sidenav__button_add" mat-raised-button (click)="openDialog()">
           <i class="material-icons add-icon">
             add
           </i>
@@ -53,8 +53,9 @@
       </div>
     </mat-toolbar>
     <div class="example-sidenav-content">
-      <h2 class="example-sidenav-content__todo-headline">To Do (5)</h2>
-      <app-tasks [name]='item.name' [text]='item.text' *ngFor="let item of items"></app-tasks>
+      <h2 class="example-sidenav-content__todo-headline">To Do ({{tasksQuantity}})</h2>
+      <app-tasks [name]='item.name' [text]='item.text' *ngFor="let item of itemsActive"></app-tasks>
+      
     </div>
 </mat-drawer-container>
 

@@ -10,6 +10,10 @@ import { Task }  from '../services/tasks.model';
 export class TasksService {
   private API_URL = 'http://localhost:3000/tasks/';
 
+  httpOptions = {
+    mode: 'no-cors',
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
   constructor(private http: HttpClient) { }
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.API_URL).pipe(
@@ -30,9 +34,9 @@ export class TasksService {
     console.error(errorMessage);
     return throwError(errorMessage);
   }
-  addTask(task: Task) {
-    return this.http.post<Task>(this.API_URL, JSON.stringify(task)).pipe(
-      tap(addTask => console.log('add task: ' + JSON.stringify(addTask))),
+  addTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.API_URL, JSON.stringify(task), this.httpOptions).pipe(
+      tap((addTask: Task) => console.log('add task: ' + JSON.stringify(addTask))),
       catchError(this.handleError));
   }
 }
