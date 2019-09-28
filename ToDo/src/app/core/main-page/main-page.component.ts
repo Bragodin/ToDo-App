@@ -17,8 +17,9 @@ export class MainPageComponent implements OnInit {
   addComponent: boolean = false;
   items: Task[];
   itemsActive: Task[];
-  itemsComplited: Task[];
+  itemsCompleted: Task[];
   tasksQuantity: number;
+  completedQuantity: number;
   data: string;
   constructor(private tasksService: TasksService, public dialog: MatDialog) { }
   
@@ -43,8 +44,11 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit() {
     this.tasksQuantity = 0;
+    this.completedQuantity = 0;
     this.items = [];
     this.itemsActive = [];
+    this.itemsCompleted = [];
+    
     this.tasksService.getTasks().subscribe(
       items => {
         this.items = items;
@@ -52,6 +56,9 @@ export class MainPageComponent implements OnInit {
           if(element.status === "active"){
             this.itemsActive.push(element);
             this.tasksQuantity++;
+          } else {
+            this.itemsCompleted.push(element);
+            this.completedQuantity++;
           }
         }); 
       }

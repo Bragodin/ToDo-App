@@ -55,7 +55,8 @@
     <div class="example-sidenav-content">
       <h2 class="example-sidenav-content__todo-headline">To Do ({{tasksQuantity}})</h2>
       <app-tasks [name]='item.name' [text]='item.text' *ngFor="let item of itemsActive"></app-tasks>
-      
+      <h2 class="example-sidenav-content__todo-headline">Completed ({{completedQuantity}})</h2>
+      <app-tasks [name]='item.name' [text]='item.text' *ngFor="let item of itemsCompleted"></app-tasks>
     </div>
 </mat-drawer-container>
 
