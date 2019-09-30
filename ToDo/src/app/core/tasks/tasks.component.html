@@ -1,11 +1,17 @@
 <div class="task">
   <div class="task__image">
+    <h3 class="task__image_logo">{{name[0].toUpperCase()}}</h3>
   </div>
   <div>
     <h3>{{name}}</h3>
     <p>{{text}}</p>
   </div>
-  <i class="material-icons more_vert-icon">
+  <div class="task__option" *ngIf="taskOption">
+    <div class="task__option_element" (click)='delete(name, text);taskOption = !taskOption'><h3>Delete</h3></div>
+    <div class="task__option_element" (click)='completed(name, text, date);taskOption = !taskOption'><h3>Completed</h3></div>
+  </div>
+  <p class="task__date">{{date}}</p>
+  <i class="material-icons more_vert-icon" (click)='taskOption = !taskOption'>
     more_vert
   </i>
 </div>

@@ -15,3 +15,40 @@
 .more_vert-icon 
   color: gray 
   margin-left: auto
+  cursor: pointer
+.task__option 
+  background: #73737511
+  berder: 3px solid #46474800
+  color: gray
+  border-radius: 5px
+  text-align: center
+  cursor: pointer 
+  position: absolute
+  left: 85%
+.task__option_element
+  margin-top: -20px
+  margin-bottom: -20px
+  z-index: 1
+.task__date 
+  margin-left: 65%
+  margin-bottom: auto
+  z-index: 0
+.task__option_element:hover
+  background: gray
+  h3:hover 
+    color: #ffffff
+.task__image_logo
+  font-size: 30px
+  color: #ffffff
+  margin-left: 30%
+  margin-top: 20%
+@media screen and (max-device-width: 975px)
+  .task__option 
+    left: 75%
+  .task__date 
+    margin-left: 65%
+@media screen and (max-device-width: 580px)
+  .task__option 
+    left: 65%
+    .task__date 
+      margin-left: 55%

@@ -39,4 +39,14 @@ export class TasksService {
       tap((addTask: Task) => console.log('add task: ' + JSON.stringify(addTask))),
       catchError(this.handleError));
   }
+  // deleteTask(task: Task): Observable<Task> {
+  //   return this.http.delete<Task>(this.API_URL).pipe(
+  //     tap((deleteTask: Task) => console.log('delete task: ' + JSON.stringify(deleteTask))),
+  //     catchError(this.handleError));
+  // }
+  // update(tasks: Task[]) {
+  //   return this.http.put<void>(this.API_URL, JSON.stringify(tasks), this.httpOptions).pipe(
+  //     tap(updateTasks => console.log('update tasks: ' + JSON.stringify(updateTasks))),
+  //     catchError(this.handleError));
+  // }
 }

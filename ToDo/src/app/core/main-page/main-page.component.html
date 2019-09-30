@@ -32,7 +32,7 @@
               filter_list
           </i>
         </button>
-        <button class="example-container__toolbar_button">
+        <button class="example-container__toolbar_button" (click)='filterByAlph()'>
           <i class="material-icons">
             sort_by_alpha
           </i>
@@ -54,9 +54,9 @@
     </mat-toolbar>
     <div class="example-sidenav-content">
       <h2 class="example-sidenav-content__todo-headline">To Do ({{tasksQuantity}})</h2>
-      <app-tasks [name]='item.name' [text]='item.text' *ngFor="let item of itemsActive"></app-tasks>
+      <app-tasks [name]='item.name' [text]='item.text' *ngFor="let item of itemsActive" [date]='item.date'></app-tasks>
       <h2 class="example-sidenav-content__todo-headline">Completed ({{completedQuantity}})</h2>
-      <app-tasks [name]='item.name' [text]='item.text' *ngFor="let item of itemsCompleted"></app-tasks>
+      <app-tasks [name]='item.name' [text]='item.text' *ngFor="let item of itemsCompleted" [date]='item.date'></app-tasks>
     </div>
 </mat-drawer-container>
 

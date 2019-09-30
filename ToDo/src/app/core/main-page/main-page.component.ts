@@ -21,12 +21,13 @@ export class MainPageComponent implements OnInit {
   tasksQuantity: number;
   completedQuantity: number;
   data: string;
+  date: any;
   constructor(private tasksService: TasksService, public dialog: MatDialog) { }
   
   openDialog(): void {
     const dialogRef = this.dialog.open(AddTaskComponent, {
       width: '280px',
-      data: {data: this.data}
+      data: { data: this.data }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -34,15 +35,20 @@ export class MainPageComponent implements OnInit {
         return alert('You did not enter a task name or description');
       }
       this.data = result;
-      this.tasksService.addTask({name: this.data[0], text: this.data[1], status: 'active'}).subscribe(
+      this.tasksService.addTask({name: this.data[0], text: this.data[1], status: 'active', date: this.date }).subscribe(
         () => console.log('add task')
       ); 
-      this.itemsActive.push({name: this.data[0], text: this.data[1], status: 'active'});
+      this.itemsActive.push({name: this.data[0], text: this.data[1], status: 'active', date: this.date});
       this.tasksQuantity++;
     });
   }
 
+  filterByAlph(){
+    this.itemsActive.sort((a, b) => a.name.localeCompare(b.name))
+  }
   ngOnInit() {
+    this.date = new Date();
+    // this.date.format("yyyy-mm-dd");
     this.tasksQuantity = 0;
     this.completedQuantity = 0;
     this.items = [];
