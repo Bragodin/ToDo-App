@@ -10,6 +10,7 @@
   margin-left: 30px
   margin-right: 30px
   width: 55px
+  min-width: 55px
   height: 55px
   border-radius: 50%
 .more_vert-icon 
@@ -28,11 +29,9 @@
 .task__option_element
   margin-top: -20px
   margin-bottom: -20px
-  z-index: 1
 .task__date 
-  margin-left: 65%
   margin-bottom: auto
-  z-index: 0
+  text-align: right
 .task__option_element:hover
   background: gray
   h3:hover 
@@ -42,13 +41,19 @@
   color: #ffffff
   margin-left: 30%
   margin-top: 20%
-@media screen and (max-device-width: 975px)
-  .task__option 
-    left: 75%
-  .task__date 
-    margin-left: 65%
-@media screen and (max-device-width: 580px)
-  .task__option 
-    left: 65%
-    .task__date 
-      margin-left: 55%
+.task__information 
+  width: 100%
+  p
+    max-width: 770px
+    word-break: break-all
+// @media screen and (max-device-width: 975px)
+//   .task__option 
+//     left: 75%
+//   .task__date 
+//     margin-left: 65%
+@media screen and (max-device-width: 447px)
+  .task
+    display: flex
+    flex-direction: column
+    .task__information 
+      text-align: center

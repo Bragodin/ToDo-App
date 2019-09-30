@@ -4,18 +4,22 @@
         <img class="example-sidenav__logo_img" src="../../../assets/logo.png" alt="ToDo">
         <h3>ToDo</h3>
       </div>
-      <a href="#" class="example-sidenav__link">
-        <i class="material-icons home-icon">
-          home
-        </i>
-        Home
-      </a>
-      <a href="#" class="example-sidenav__link">
-        <i class="material-icons settings_applications-icon">
-          settings_applications
-        </i>
-        Settings
-      </a>
+      <div class="example-sidenav__link-block">
+        <a routerLink="/" class="example-sidenav__link">
+          <i class="material-icons home-icon">
+            home
+          </i>
+          Home
+        </a>
+      </div>
+      <div class="example-sidenav__link-block">
+        <a href="/" class="example-sidenav__link">
+          <i class="material-icons settings_applications-icon">
+            settings_applications
+          </i>
+          Settings
+        </a>
+      </div>
     </mat-drawer>
     <mat-toolbar class="example-container__toolbar">
       <button class="example-container__toolbar_button" mat-button (click)="drawer.toggle(); leftArrow = !leftArrow">
